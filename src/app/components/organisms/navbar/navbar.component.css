@@ -1,0 +1,61 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link,
+.cart {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 650;
+  opacity: 0.9;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  transition: background 140ms ease, border-color 140ms ease, opacity 140ms ease;
+}
+
+.link:hover,
+.cart:hover {
+  opacity: 1;
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.18);
+}
+
+.active {
+  opacity: 1;
+  background: rgba(2, 132, 199, 0.12);
+  border-color: rgba(2, 132, 199, 0.28);
+}
+
+.cart {
+  position: relative;
+}
+
+.clear {
+  cursor: pointer;
+  opacity: 0.85;
+  border-radius: 12px;
+  transition: background 140ms ease, opacity 140ms ease;
+}
+
+.clear:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.link:focus-visible,
+.cart:focus-visible,
+.clear:focus-visible {
+  outline: 3px solid rgba(2, 132, 199, 0.35);
+  outline-offset: 2px;
+}
+
+:host ::ng-deep .mat-badge-content {
+  background: #0369a1;
+  color: #ffffff;
+}

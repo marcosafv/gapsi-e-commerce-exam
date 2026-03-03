@@ -1,0 +1,10 @@
+<section class="card">
+  <div class="avatar-wrap">
+    <app-candidate-avatar [src]="candidateImageSrc()" [size]="140" />
+  </div>
+
+  <div class="copy">
+    <h1 class="title">Bienvenido {{ candidateName() }}</h1>
+    <p class="subtitle">Versión: {{ appVersion() }}</p>
+  </div>
+</section>

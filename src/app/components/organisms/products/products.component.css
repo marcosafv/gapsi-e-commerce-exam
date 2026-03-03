@@ -1,0 +1,26 @@
+.viewport {
+  height: calc(100vh - 180px);
+  width: 100%;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  padding-bottom: 14px;
+  box-sizing: border-box;
+  height: 280px;
+}
+
+.loading-more {
+  text-align: center;
+  padding: 14px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

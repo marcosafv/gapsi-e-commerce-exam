@@ -1,0 +1,16 @@
+<div cdkDropList id="products-drop" [cdkDropListConnectedTo]="['cart-drop']" [cdkDropListSortingDisabled]="true">
+  <cdk-virtual-scroll-viewport
+    [itemSize]="ROW_HEIGHT"
+    class="viewport"
+  >
+    <div *cdkVirtualFor="let row of rows()" class="row">
+      @for (product of row; track product.sku) {
+        <app-product-tile [product]="product" />
+      }
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+
+@if (isLoadingMore()) {
+  <div class="loading-more">Cargando más productos...</div>
+}

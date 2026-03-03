@@ -1,0 +1,13 @@
+<article class="tile" cdkDrag [cdkDragData]="product()">
+  <div class="media">
+    <img class="image" [src]="product().image" [alt]="product().name" loading="lazy" />
+  </div>
+
+  <div class="body">
+    <div class="top">
+      <div class="name">{{ product().name }}</div>
+      <div class="price">{{ product().price | currency }}</div>
+    </div>
+    <div class="description">{{ product().description }}</div>
+  </div>
+</article>

@@ -1,0 +1,11 @@
+@let vm = this.vm();
+
+<app-products-template
+  [title]="'Productos'"
+  [products]="vm.products"
+  [isLoading]="vm.isLoading"
+  [isLoadingMore]="vm.isLoadingMore"
+  [hasMore]="vm.hasMore"
+  [errorMessage]="vm.errorMessage"
+  (loadMore)="loadMore()"
+/>

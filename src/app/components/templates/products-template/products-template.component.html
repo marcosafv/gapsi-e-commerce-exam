@@ -1,0 +1,22 @@
+<div class="shell">
+  <app-header [title]="'e-Commerce Gapsi'" />
+
+  <main class="content">
+    <div class="heading">
+      <h1 class="page-title">{{ title() }}</h1>
+      @if (isLoading()) {
+        <p class="page-subtitle">Cargando productos...</p>
+      }
+      @if (errorMessage()) {
+        <p class="page-subtitle error">{{ errorMessage() }}</p>
+      }
+    </div>
+
+    <app-products
+      [products]="products()"
+      [isLoadingMore]="isLoadingMore()"
+      [hasMore]="hasMore()"
+      (loadMore)="loadMore.emit()"
+    />
+  </main>
+</div>

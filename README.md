@@ -1,59 +1,105 @@
 # GapsiECommerce
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0.
+Este proyecto fue generado usando [Angular CLI](https://github.com/angular/angular-cli) versión 21.2.0.
 
-## Development server
+## Estructura del proyecto (Atomic Design + buenas prácticas)
 
-To start a local development server, run:
+El código sigue un enfoque por capas (`core`/`components`/`pages`/`shared`) y una organización de UI orientada a Atomic Design dentro de `components`.
+
+```
+src/
+  app/
+    core/
+      graphql/
+      services/
+      utils/
+    shared/
+      models/
+      mocks/
+    components/
+      atoms/
+      molecules/
+      organisms/
+      templates/
+    pages/
+      welcome/
+      products/
+      cart/
+    app.ts
+    app.routes.ts
+    app.config.ts
+```
+
+- **core/**
+  - Singletons y configuración a nivel app (por ejemplo: clientes API, interceptores, servicios globales).
+- **shared/**
+  - Tipos y utilidades transversales reutilizadas por varias pantallas/funcionalidades (models, mocks, utilidades).
+- **components/**
+  - Componentes reutilizables de presentación siguiendo Atomic Design (atoms/molecules/organisms/templates).
+- **pages/**
+  - Páginas/flujo principal de la aplicación (welcome/products/cart).
+
+## Servidor de desarrollo
+
+Este proyecto genera `src/environments/environment.generated.ts` a partir de `.env`.
+
+Para iniciar el servidor de desarrollo local (y generar el env), ejecuta:
 
 ```bash
+npm start
+```
+
+Si ejecutas `ng serve` directamente, primero debes generar el archivo de env:
+
+```bash
+node scripts/generate-env.mjs
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Cuando el servidor esté corriendo, abre el navegador y entra a `http://localhost:4200/`. La aplicación se recargará automáticamente cuando modifiques cualquier archivo del código fuente.
 
-## Code scaffolding
+## Generación de código (scaffolding)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Angular CLI incluye herramientas potentes para generar código. Para crear un nuevo componente, ejecuta:
 
 ```bash
 ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para ver la lista completa de esquemas disponibles (como `components`, `directives` o `pipes`), ejecuta:
 
 ```bash
 ng generate --help
 ```
 
-## Building
+## Build
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Para compilar el proyecto ejecuta:
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Esto compilará tu proyecto y guardará los artefactos en el directorio `dist/`. Por defecto, el build de producción optimiza la aplicación para rendimiento y velocidad.
 
-For end-to-end (e2e) testing, run:
+## Ejecutar pruebas unitarias
+
+Para ejecutar las pruebas unitarias con [Vitest](https://vitest.dev/), usa el siguiente comando:
+
+```bash
+npm test
+```
+
+## Ejecutar pruebas end-to-end
+
+Para pruebas end-to-end (e2e), ejecuta:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Angular CLI no incluye un framework de e2e por defecto. Puedes elegir el que mejor se adapte a tu necesidad.
 
-## Additional Resources
+## Recursos adicionales
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para más información sobre Angular CLI, incluyendo referencias detalladas de comandos, visita la página de [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).

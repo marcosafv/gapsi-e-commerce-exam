@@ -1,0 +1,22 @@
+<nav class="nav">
+  <a mat-button routerLink="/products" routerLinkActive="active" class="link">Products</a>
+
+  <a
+    id="cart-drop"
+    mat-button
+    routerLink="/cart"
+    routerLinkActive="active"
+    class="cart"
+    cdkDropList
+    (cdkDropListDropped)="onDropOnCart($event)"
+    [matBadge]="cartCount()"
+    [matBadgeHidden]="cartCount() === 0"
+    matBadgeOverlap="false"
+  >
+    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+    <span class="cart-text">Cart</span>
+  </a>
+  <button mat-icon-button type="button" class="clear" (click)="clearCart($event)" aria-label="Vaciar carrito">
+    <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+  </button>
+</nav>

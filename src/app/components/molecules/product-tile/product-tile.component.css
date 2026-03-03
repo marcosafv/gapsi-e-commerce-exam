@@ -1,0 +1,72 @@
+.tile {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.media {
+  background: #ffffff;
+  height: 155px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.body {
+  padding: 10px 12px 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 10px;
+}
+
+.name {
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: #0284c7;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 0.82rem;
+  line-height: 1.25;
+  color: rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
