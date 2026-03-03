@@ -36,6 +36,29 @@
   position: relative;
 }
 
+.cart--over {
+  opacity: 1;
+  background: rgba(2, 132, 199, 0.14);
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.16);
+}
+
+.cart--pulse {
+  animation: cartPulse 240ms ease-out;
+}
+
+@keyframes cartPulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .clear {
   cursor: pointer;
   opacity: 0.85;

@@ -7,8 +7,12 @@
     routerLink="/cart"
     routerLinkActive="active"
     class="cart"
+    [class.cart--over]="isCartOver()"
+    [class.cart--pulse]="cartPulse()"
     cdkDropList
     (cdkDropListDropped)="onDropOnCart($event)"
+    (cdkDropListEntered)="onCartEnter($event)"
+    (cdkDropListExited)="onCartExit($event)"
     [matBadge]="cartCount()"
     [matBadgeHidden]="cartCount() === 0"
     matBadgeOverlap="false"

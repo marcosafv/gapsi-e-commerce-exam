@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { DragDropModule, CdkDragDrop } from '@angular/cdk/drag-drop';
+import { DragDropModule, CdkDragDrop, CdkDragEnter, CdkDragExit } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 
@@ -18,6 +18,8 @@ export class Navbar {
   private readonly cart = inject(CartService);
 
   protected readonly cartCount = this.cart.count;
+  protected readonly isCartOver = signal(false);
+  protected readonly cartPulse = signal(false);
 
   protected clearCart(event: MouseEvent): void {
     event.preventDefault();
@@ -29,5 +31,16 @@ export class Navbar {
     const product = event.item.data as Product | undefined;
     if (!product) return;
     this.cart.add(product);
+    this.isCartOver.set(false);
+    this.cartPulse.set(true);
+    globalThis.setTimeout(() => this.cartPulse.set(false), 260);
+  }
+
+  protected onCartEnter(_: CdkDragEnter<unknown>): void {
+    this.isCartOver.set(true);
+  }
+
+  protected onCartExit(_: CdkDragExit<unknown>): void {
+    this.isCartOver.set(false);
   }
 }
