@@ -8,8 +8,8 @@
     "prebuild": "node scripts/generate-env.mjs",
     "build": "ng build",
     "build:prod": "ng build --configuration production --source-map=false",
-    "postbuild:prod": "node scripts/obfuscate-dist.mjs",
-    "build:obfuscated": "npm run build:prod",
+    "obfuscate:dist": "node scripts/obfuscate-dist.mjs",
+    "build:obfuscated": "npm run build:prod && npm run obfuscate:dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
